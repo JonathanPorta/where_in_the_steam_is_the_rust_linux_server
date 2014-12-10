@@ -18,7 +18,8 @@ export branches=("experimental" "development" " ")
 # Download the steamcmd utility
 wget -N $steamcmd_pkg
 tar -xvzf $steamcmd_tar
-$base_directory/steamcmd.sh +login anonymous +quit
+
+./steamcmd.sh +login anonymous +quit
 
 # Let's install a bunch of servers!
 for platform in "${platforms[@]}"
@@ -34,7 +35,7 @@ do
     echo -e "\n\nTrying to run app_update $branch to install steam app $steam_id as a build for $platform in $platform_install_directory\n"
 
     # Finally, actually install something!
-    $base_directory/steamcmd.sh +@sSteamCmdForcePlatformType $platform +login anonymous +force_install_dir $platform_install_directory +app_update $steam_id $branch validate +quit
+    ./steamcmd.sh +@sSteamCmdForcePlatformType $platform +login anonymous +force_install_dir $platform_install_directory +app_update $steam_id $branch validate +quit
   done
 done
 
