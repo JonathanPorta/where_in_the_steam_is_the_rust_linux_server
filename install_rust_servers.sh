@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set +e
 
@@ -41,4 +41,4 @@ done
 set -e
 
 # Look for our beloved.
-find $server_install_directory -name $linux_executable_name
+find $server_install_directory -name $linux_executable_name | egrep '.*' # pipe this to egrep to cause a failure when there's a no-show.
