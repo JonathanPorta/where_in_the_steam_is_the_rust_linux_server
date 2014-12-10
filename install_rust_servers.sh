@@ -1,19 +1,8 @@
 #!/bin/bash
 
-set +e
+set +e # Don't fail when steamcmd can't find the given app.
 
-# Define all the things!
-export steamcmd_tar="steamcmd_linux.tar.gz"
-export steamcmd_pkg="http://media.steampowered.com/installer/$steamcmd_tar"
-
-export linux_executable_name="RustDedicated"
-export steam_id="258550"
-
-export base_directory=$(pwd)
-export server_install_directory="$base_directory/install"
-
-export platforms=("windows" "macos" "linux")
-export branches=("experimental" "development" " ")
+source ./environment.sh
 
 # Download the steamcmd utility
 wget -N $steamcmd_pkg
@@ -39,7 +28,4 @@ do
   done
 done
 
-set -e
-
-# Look for our beloved.
-find $server_install_directory -name $linux_executable_name | egrep '.*' # pipe this to egrep to cause a failure when there's a no-show.
+echo "Finished trying to install servers."

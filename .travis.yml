@@ -4,4 +4,8 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y lib32gcc1
 
-script: ./install_rust_servers.sh
+install: ./install_rust_servers.sh
+
+script: ./test.sh
+
+after_script: ./dump_file_list.sh
