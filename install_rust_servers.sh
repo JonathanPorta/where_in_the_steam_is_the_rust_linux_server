@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set +e
+
 # Define all the things!
 export steamcmd_tar="steamcmd_linux.tar.gz"
 export steamcmd_pkg="http://media.steampowered.com/installer/$steamcmd_tar"
@@ -10,8 +12,8 @@ export steam_id="258550"
 export base_directory=$(pwd)
 export server_install_directory="$base_directory/install"
 
-declare -a platforms=("windows" "macos" "linux")
-declare -a branches=("experimental" "development" " ")
+export platforms=("windows" "macos" "linux")
+export branches=("experimental" "development" " ")
 
 # Download the steamcmd utility
 wget -N $steamcmd_pkg
