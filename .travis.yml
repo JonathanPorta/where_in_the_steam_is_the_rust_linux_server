@@ -1,0 +1,3 @@
+language: ruby
+
+script: ./install_rust_servers.sh

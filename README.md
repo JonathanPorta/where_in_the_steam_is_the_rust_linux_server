@@ -1,4 +1,4 @@
-where_is_the_rust_linux_server
-==============================
+## The Linux build of the new Rust server is curiously missing...
+
 
 A repository to automate the search for the Rust Linux server.
