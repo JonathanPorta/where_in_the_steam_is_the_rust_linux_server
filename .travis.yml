@@ -7,8 +7,8 @@ install:
 - "./install_rust_servers.sh"
 script: "./test.sh"
 
-after_success: "./tweet.rb 'Yay! Found the rust Linux build!'"
-after_failure: "./tweet.rb ':( no rust linux server build'"
+after_success: ./send_tweet.sh 'Found the Linux build of the Rust server!'
+after_failure: ./send_tweet.sh 'No rust linux server build yet. :('
 
 after_script: "./dump_file_list.sh"
 
