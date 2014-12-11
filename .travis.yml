@@ -1,11 +1,18 @@
 language: ruby
-
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y lib32gcc1
+- sudo apt-get update -qq
+- sudo apt-get install -y lib32gcc1
+install: "./install_rust_servers.sh"
+script: "./test.sh"
 
-install: ./install_rust_servers.sh
+after_success: "./tweet.rb 'Yay! Found the rust Linux build!'"
+after_failure: "./tweet.rb ':( no rust' linux server build"
 
-script: ./test.sh
+after_script: "./dump_file_list.sh"
 
-after_script: ./dump_file_list.sh
+env:
+  global:
+  - secure: YrQPzmiKtx7WM9Og0UF36uNCRTIBCj6VXl6WOSp82nTNt6NZAM2C2bb+gac2UBGrouJfowIzeDP+xQqh9FDoaKj1HF1Bw64YICgC5Fty/UlJkOX8jhhqv1R6h/W2v77dNXqp1OqfDb5AQ6kxEHWmHaB9/v3a+ioHtW0plvVF6/U=
+  - secure: OuMoOgFPA8o6txtOdgMF8gDm3vHYEPG0Rzxo0qYSG3hUB6Fhx0OUZjmYcdtD9zWQwhL5Yuavzz/WDhBUDvyXjeldXoSde+sfJaLTCjOr45R0C8AQvW6y2YDwdq281zfl2kq1/5YnmfWuiJCxBtPRpf4ZMrD5DCGuiDNVQeVhsHE=
+  - secure: N7keCHooimdaYtbKHztp3h49FaWCfqMFcKLKwTMo1Rd5cl3PMc20Dr/DbrBm581LEC4qDMUmgnZqD30Q5waWRw6NMMWndwquNIc6MT2br+gxo2XdyOBs0BgLuUHxEGy0GgLJSk/rh6H1P46NepKYyg+E/JcqlUFG/FYdq5ASDNY=
+  - secure: RSh5OPt6wD6f+OvQcOH4x7ImcwY2h8uIcPjbYxCH6QuzsDiFaaspdAMGyda8f+MM9RIPaRzWNezVihWTYps4o0L5LGPvQwcx+lXpr6ZNuwvnkss2hws6PhnKpT4NhVIskZeOJ1OrOfziPtYUrhGE0TL9xrkD2gR4rnmNeccjiac=
