@@ -16,4 +16,4 @@ If the build is failing, then our dear Linux server build is still missing.
 I've setup the TravisCI build to report it's status to a Twitter account: [@rust_linux_bot](https://twitter.com/rust_linux_bot)
 
 ### UPDATE!
-As of [Devblog-99][https://playrust.com/devblog-99/] the Rust Linux server has been fixed and is available again on Steam!
+As of [Devblog-99](https://playrust.com/devblog-99) the Rust Linux server has been fixed and is available again on Steam!
